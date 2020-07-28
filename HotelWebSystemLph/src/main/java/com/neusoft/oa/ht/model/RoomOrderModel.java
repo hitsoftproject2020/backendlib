@@ -7,31 +7,26 @@ import org.apache.ibatis.type.Alias;
 @Alias("RoomOrder")
 public class RoomOrderModel implements Serializable {
 	private int roid = 0;
-	private int cid = 0;
-	private int rid = 0;
+	
 	private Date rodate = null;
 	private Date checkinDate = null;
 	private Date checkoutDate = null;
 	private String rostate = null;
 	private String roremark = null;
+	
+	
+	//与CustomerModel和RoomModel相关联，cid和rid从这取出调用
+	private CustomerModel customer = null;
+	private RoomModel room = null;
+	
+	
 	public int getRoid() {
 		return roid;
 	}
 	public void setRoid(int roid) {
 		this.roid = roid;
 	}
-	public int getCid() {
-		return cid;
-	}
-	public void setCid(int cid) {
-		this.cid = cid;
-	}
-	public int getRid() {
-		return rid;
-	}
-	public void setRid(int rid) {
-		this.rid = rid;
-	}
+	
 	public Date getRodate() {
 		return rodate;
 	}
@@ -61,6 +56,18 @@ public class RoomOrderModel implements Serializable {
 	}
 	public void setRoremark(String roremark) {
 		this.roremark = roremark;
+	}
+	public CustomerModel getCustomer() {
+		return customer;
+	}
+	public void setCustomer(CustomerModel customer) {
+		this.customer = customer;
+	}
+	public RoomModel getRoom() {
+		return room;
+	}
+	public void setRoom(RoomModel room) {
+		this.room = room;
 	}
 	
 	

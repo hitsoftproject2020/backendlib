@@ -13,5 +13,5 @@ public interface IServiceMapper {
 	public void update(ServiceModel serviceModel) throws Exception;
 	public void delete(ServiceModel serviceModel) throws Exception;
 	public List<ServiceModel> selectByAll() throws Exception;
-	public ServiceModel selectByid(int id) throws Exception;
+	public ServiceModel selectById(int id) throws Exception;
 }

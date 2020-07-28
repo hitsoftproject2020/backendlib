@@ -5,37 +5,35 @@
 <mapper namespace="com.neusoft.oa.ht.mapper.IRoomMapper">
 
 	<resultMap id="RoomResultMap" type="Room" >
-		<id property="no" column="DEPTNO"/>
-		<result property="code" column="DEPTCODE"/>
-		<result property="name" column="DEPTNAME"/>
+		<id property="rid" column="RID"/>
+		<result property="floor" column="FLOOR"/>
+		<result property="rstate" column="RSTATE"/>
+		<result property="rremark" column="RREMARK"/>
 	</resultMap>
+	
+	<resultMap id="RoomWithRoomTypeResultMap" type="Room" extends="RoomResultMap">
+  	    <association property="roomtype" resultMap="com.neusoft.oa.ht.mapper.IRoomTypeMapper.RoomTypeResultMap"></association>
+    </resultMap>
  
 	<insert id="insert" parameterType="Room" keyProperty="rid"   keyColumn="RID"  useGeneratedKeys="true">
-	insert into oa_department (DEPTCODE,DEPTNAME) values (#{code},#{name})
+	insert into room (FLOOR,TID) values (#{floor},#{roomtype.tid})
  	</insert>
   
- 	<update id="update">
- 	update  oa_department set DEPTCODE=#{code},DEPTNAME=#{name} where DEPTNO=#{no}
+ 	<update id="update" parameterType="Room">
+ 	update  room set RSTATE=#{rstate},RREMARK=#{rremark} where RID=#{rid}
  	</update>
   
-	<delete id="delete">
- 	delete from oa_department  where DEPTNO=#{no} 
+	<delete id="delete" parameterType="Room">
+ 	delete from room  where RID=#{rid} 
  	</delete>
   
- 	<select id="selectByAll"  resultMap="DepartmentResultMap">
- 	select *  from oa_department
+ 	<select id="selectByAll"  resultMap="RoomResultMap">
+ 	select *  from room
  	</select>
  	
- 	<select id="selectByAllWithPage" resultMap="DepartmentResultMap">
- 	select *  from oa_department limit #{start},#{rows}
- 	</select>
- 	
- 	<select id="selectCountByAll" resultType="_int">
- 	select count(*)  from oa_department
- 	</select>
  
- 	<select id="selectByNo"  resultMap="DepartmentResultMap">
- 	select * from oa_department where DEPTNO=#{no}
+ 	<select id="selectById"  resultMap="RoomResultMap">
+ 	select * from room where RID=#{rid}
  	</select>
   
 </mapper>

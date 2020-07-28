@@ -7,9 +7,14 @@ import org.apache.ibatis.type.Alias;
 public class RoomModel implements Serializable {
 	private int rid = 0;
 	private int floor = 0;
-	private int tid = 0;
+	
 	private String rstate = null;
 	private String rremark = null;
+	
+	
+	//与RoomTypeModel相关联，tid从这调用
+	private RoomTypeModel roomtype = null;
+	
 	public int getRid() {
 		return rid;
 	}
@@ -22,12 +27,7 @@ public class RoomModel implements Serializable {
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
-	public int getTid() {
-		return tid;
-	}
-	public void setTid(int tid) {
-		this.tid = tid;
-	}
+	
 	public String getRstate() {
 		return rstate;
 	}
@@ -39,6 +39,12 @@ public class RoomModel implements Serializable {
 	}
 	public void setRremark(String rremark) {
 		this.rremark = rremark;
+	}
+	public RoomTypeModel getRoomtype() {
+		return roomtype;
+	}
+	public void setRoomtype(RoomTypeModel roomtype) {
+		this.roomtype = roomtype;
 	}
 	
 	

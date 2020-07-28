@@ -12,5 +12,5 @@ public interface ICustomerMapper {
 	public void update(CustomerModel customerModel) throws Exception;
 	public void delete(CustomerModel customerModel) throws Exception;
 	public List<CustomerModel> selectByAll() throws Exception;
-	public CustomerModel selectByid(int id) throws Exception;
+	public CustomerModel selectById(int id) throws Exception;
 }

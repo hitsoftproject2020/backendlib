@@ -12,6 +12,6 @@ public interface IRoomOrderMapper {
 	public void update(RoomOrderModel roomOrderModel) throws Exception;
 	public void delete(RoomOrderModel roomOrderModel) throws Exception;
 	public List<RoomOrderModel> selectByAll() throws Exception;
-	public RoomOrderModel selectByid(int id) throws Exception;
+	public RoomOrderModel selectById(int id) throws Exception;
 
 }

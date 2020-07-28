@@ -12,5 +12,5 @@ public interface IServiceOrderMapper {
 	public void update(ServiceOrderModel serviceOrderModel) throws Exception;
 	public void delete(ServiceOrderModel serviceOrderModel) throws Exception;
 	public List<ServiceOrderModel> selectByAll() throws Exception;
-	public ServiceOrderModel selectByid(int id) throws Exception;
+	public ServiceOrderModel selectById(int id) throws Exception;
 }
