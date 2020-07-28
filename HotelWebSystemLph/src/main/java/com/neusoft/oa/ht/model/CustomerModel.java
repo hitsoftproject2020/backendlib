@@ -2,6 +2,8 @@ package com.neusoft.oa.ht.model;
 
 import java.io.Serializable;
 
+import org.apache.ibatis.type.Alias;
+@Alias("Customer")
 public class CustomerModel implements Serializable {
 	private int cid = 0;
 	private String cnameString = null;

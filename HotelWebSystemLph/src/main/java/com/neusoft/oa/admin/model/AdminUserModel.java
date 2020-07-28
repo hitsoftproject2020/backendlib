@@ -2,6 +2,8 @@ package com.neusoft.oa.admin.model;
 
 import java.io.Serializable;
 
+import org.apache.ibatis.type.Alias;
+@Alias("AdminUser")
 public class AdminUserModel implements Serializable {
 	private int adminid = 0;
 	private String adminName = null;

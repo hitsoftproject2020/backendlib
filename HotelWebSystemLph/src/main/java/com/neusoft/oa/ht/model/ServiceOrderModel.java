@@ -3,6 +3,8 @@ package com.neusoft.oa.ht.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import org.apache.ibatis.type.Alias;
+@Alias("ServiceOrder")
 public class ServiceOrderModel implements Serializable {
 	private int soid = 0;
 	private int cid = 0;

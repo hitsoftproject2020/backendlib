@@ -3,6 +3,8 @@ package com.neusoft.oa.ht.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import org.apache.ibatis.type.Alias;
+@Alias("RoomOrder")
 public class RoomOrderModel implements Serializable {
 	private int roid = 0;
 	private int cid = 0;
