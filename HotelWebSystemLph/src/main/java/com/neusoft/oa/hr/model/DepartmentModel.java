@@ -11,7 +11,7 @@ public class DepartmentModel implements Serializable {
 	private String name=null;
 	//部门关联的员工集合
 	
-	
+	//get方法
 	public int getNo() {
 		return no;
 	}
