@@ -14,7 +14,7 @@
 		<result property="cphoneno" column="CPHONENO"/>
 	</resultMap>
  
-	<insert id="insert" parameterType="Customer">
+	<insert id="insert" parameterType="Customer" keyProperty="cid"   keyColumn="CID"  useGeneratedKeys="true">
 	insert into customer (CNAME,CPASSWORD,CREALNAME,CSEX,CIDNO,CPHONENO) values (#{cnameString},#{cpassWord},#{crealName},#{csex},#{cidno},#{cphoneno})
  	</insert>
   
