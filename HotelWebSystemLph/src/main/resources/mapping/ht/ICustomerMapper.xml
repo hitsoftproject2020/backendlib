@@ -8,8 +8,8 @@
 		<id property="cid" column="CID"/>
 		<result property="cnameString" column="CNAME"/>
 		<result property="cpassWord" column="CPASSWORD"/>
-		<result property="csex" column="CREALNAME"/>
-		<result property="cpassWord" column="CSEX"/>
+		<result property="crealName" column="CREALNAME"/>
+		<result property="csex" column="CSEX"/>
 		<result property="cidno" column="CIDNO"/>
 		<result property="cphoneno" column="CPHONENO"/>
 	</resultMap>
@@ -18,11 +18,11 @@
 	insert into customer (CNAME,CPASSWORD,CREALNAME,CSEX,CIDNO,CPHONENO) values (#{cnameString},#{cpassWord},#{crealName},#{csex},#{cidno},#{cphoneno})
  	</insert>
   
- 	<update id="update">
+ 	<update id="update" parameterType="Customer">
  	update customer set CNAME=#{cnameString},CPASSWORD=#{cpassWord},CREALNAME=#{crealName},CSEX=#{csex},CIDNO=#{cidno},CPHONENO=#{cphoneno} where CID=#{cid}
  	</update>
   
-	<delete id="delete">
+	<delete id="delete" parameterType="Customer">
  	delete from customer  where CID=#{cid} 
  	</delete>
   
