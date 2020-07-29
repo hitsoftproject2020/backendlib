@@ -30,7 +30,7 @@
  	select *  from service_order
  	</select>
  
- 	<select id="selectByid"  resultMap="ServiceOrderResultMap">
+ 	<select id="selectById"  resultMap="ServiceOrderResultMap">
  	select * from service_order where SOID=#{soid}
  	</select>
   

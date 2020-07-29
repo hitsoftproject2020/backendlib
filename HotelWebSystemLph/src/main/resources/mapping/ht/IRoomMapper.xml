@@ -9,10 +9,7 @@
 		<result property="floor" column="FLOOR"/>
 		<result property="rstate" column="RSTATE"/>
 		<result property="rremark" column="RREMARK"/>
-<<<<<<< HEAD
 		
-=======
->>>>>>> branch 'master' of https://github.com/hitsoftproject2020/backendlib.git
 	</resultMap>
 	
 	<resultMap id="RoomWithRoomTypeResultMap" type="Room" extends="RoomResultMap">
@@ -36,11 +33,7 @@
  	</select>
  	
  
-<<<<<<< HEAD
- 	<select id="selectByid"  resultMap="RoomResultMap">
-=======
  	<select id="selectById"  resultMap="RoomResultMap">
->>>>>>> branch 'master' of https://github.com/hitsoftproject2020/backendlib.git
  	select * from room where RID=#{rid}
  	</select>
   

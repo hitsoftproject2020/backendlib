@@ -26,7 +26,7 @@
  	select *  from service
  	</select>
  
- 	<select id="selectByid"  resultMap="ServiceResultMap">
+ 	<select id="selectById"  resultMap="ServiceResultMap">
  	select * from service where SID=#{sid}
  	</select>
   

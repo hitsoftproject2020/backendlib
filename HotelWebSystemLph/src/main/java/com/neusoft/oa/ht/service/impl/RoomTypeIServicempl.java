@@ -44,7 +44,7 @@ public class RoomTypeIServicempl implements IRoomTypeService {
 	@Override
 	public RoomTypeModel seleteById(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return irt.selectByid(id);
+		return irt.selectById(id);
 	}
 
 }

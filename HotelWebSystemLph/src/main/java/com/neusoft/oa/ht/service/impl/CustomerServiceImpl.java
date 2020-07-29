@@ -50,7 +50,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public CustomerModel seleteById(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return iCustomerMapper.selectByid(id);
+		return iCustomerMapper.selectById(id);
 	}
 
 }

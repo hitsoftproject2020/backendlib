@@ -45,7 +45,7 @@ public class ServiceServiceImpl implements IServiceService {
 	@Override
 	public ServiceModel seleteById(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return is.selectByid(id);
+		return is.selectById(id);
 	}
 
 }

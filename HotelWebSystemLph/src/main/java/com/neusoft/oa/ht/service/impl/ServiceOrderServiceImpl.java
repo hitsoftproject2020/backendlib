@@ -43,7 +43,7 @@ public class ServiceOrderServiceImpl implements IServiceOrderService {
 	@Override
 	public ServiceOrderModel seleteById(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return iso.selectByid(id);
+		return iso.selectById(id);
 	}
 
 }

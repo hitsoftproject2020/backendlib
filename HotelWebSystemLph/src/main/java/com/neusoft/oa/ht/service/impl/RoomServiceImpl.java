@@ -45,7 +45,7 @@ public class RoomServiceImpl implements IRoomService {
 	@Override
 	public RoomModel seleteById(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return room.selectByid(id);
+		return room.selectById(id);
 	}
 
 }
