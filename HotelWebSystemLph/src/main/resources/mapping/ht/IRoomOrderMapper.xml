@@ -43,8 +43,17 @@
  	<select id="selectByAll"  resultMap="RoomOrderResultMap">
  	select *  from room_order
  	</select>
+<<<<<<< HEAD
+=======
+ 	
+ 	
+>>>>>>> branch 'master' of https://github.com/hitsoftproject2020/backendlib.git
  
+<<<<<<< HEAD
  	<select id="selectByid"  resultMap="RoomOrderResultMap">
+=======
+ 	<select id="selectByNo"  resultMap="RoomOrderResultMap">
+>>>>>>> branch 'master' of https://github.com/hitsoftproject2020/backendlib.git
  	select * from room_order where ROID=#{roid}
  	</select>
   
