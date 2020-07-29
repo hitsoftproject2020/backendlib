@@ -15,6 +15,6 @@ mybatis:
 #showSql
 logging:
   level:
-     com.neusoft.oa: debug
+     com.neusoft.oa.ht.mapper: debug
     
  
