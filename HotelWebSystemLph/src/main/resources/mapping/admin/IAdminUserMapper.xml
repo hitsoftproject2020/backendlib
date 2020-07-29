@@ -11,22 +11,22 @@
 	</resultMap>
  
 	<insert id="insert" parameterType="AdminUser" keyProperty="adminid"   keyColumn="ADMINID"  useGeneratedKeys="true">
-	insert into admin_user (ADMINNAME,ADMINPASSWORD) values (#{adminName},#{adminPassWord})
+	insert into admin_user (ADMINNAME,ADMINPASSWORD) values (#{adminName},#{adminPassWors})
  	</insert>
   
  	<update id="update">
- 	update customer set ADMINNAME=#{adminName},ADMINPASSWORD=#{adminPassWord} where ADMINID=#{adminid}
+ 	update admin_user set ADMINNAME=#{adminName},ADMINPASSWORD=#{adminPassWord}where ADMINID=#{adminid}
  	</update>
   
 	<delete id="delete">
- 	delete from admin_user where ADMINID=#{adminid} 
+ 	delete from admin_user  where ADMINID=#{adminid} 
  	</delete>
   
  	<select id="selectByAll"  resultMap="AdminUserResultMap">
  	select *  from admin_user
  	</select>
  
- 	<select id="selectByid"  resultMap="AdminUserResultMap">
+ 	<select id="selectByid"  resultMap="CustomerResultMap">
  	select * from admin_user where ADMINID=#{adminid}
  	</select>
   
