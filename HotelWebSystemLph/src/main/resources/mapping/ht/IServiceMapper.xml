@@ -14,11 +14,11 @@
 	insert into service (SNAME,SPRICE) values (#{sname},#{sprice})
  	</insert>
   
- 	<update id="update">
+ 	<update id="update" parameterType="Service">
  	update  service set SNAME=#{sname},SPRICE=#{sprice} where SID=#{sid}
  	</update>
   
-	<delete id="delete">
+	<delete id="delete" parameterType="Service">
  	delete from service  where SID=#{sid} 
  	</delete>
   

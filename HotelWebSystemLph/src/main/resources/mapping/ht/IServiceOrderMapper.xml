@@ -18,11 +18,11 @@
 	insert into service_order (CID,SID,SERVICENUM,SODATE,SOSTATE,SOREMARK) values (#{cid},#{sid},#{serviceNum},#{sodate},#{sostate},#{soremark})
  	</insert>
   
- 	<update id="update">
+ 	<update id="update" parameterType="ServiceOrder">
  	update  oservice_order set CID=#{cid},SID=#{sid},SERVICENUM=#{serviceNum},SODATE=#{sodate},SOSTATE=#{sostate},SOREMARK=#{spremark} where SOID=#{soid}
  	</update>
   
-	<delete id="delete">
+	<delete id="delete" parameterType="ServiceOrder">
  	delete from service_order  where SOID=#{soid} 
  	</delete>
   
