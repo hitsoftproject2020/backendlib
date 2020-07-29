@@ -30,7 +30,7 @@
  	select *  from customer
  	</select>
  
- 	<select id="selectByid"  resultMap="DepartmentResultMap">
+ 	<select id="selectByid"  resultMap="CustomerResultMap">
  	select * from customer where CID=#{id}
  	</select>
   

@@ -7,7 +7,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @SpringBootApplication
-@MapperScan(basePackages={"com.neusoft.oa.ht.mapper","com.neusoft.oa.admin.mapper"})
+//@MapperScan(basePackages={"com.neusoft.oa.ht.mapper","com.neusoft.oa.admin.mapper"})
+@MapperScan(basePackages={"com.neusoft.oa.ht.mapper"})
 @EnableTransactionManagement  //启用事务Advice
 public class HotelWebSystemLphApplication {
 
