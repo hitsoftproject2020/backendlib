@@ -23,7 +23,7 @@
  	</update>
   
 	<delete id="delete">
- 	delete from custom  where CID=#{cid} 
+ 	delete from customer  where CID=#{cid} 
  	</delete>
   
  	<select id="selectByAll"  resultMap="CustomerResultMap">

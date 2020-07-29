@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.neusoft.oa.ht.mapper.ICustomerMapper;
 import com.neusoft.oa.ht.model.CustomerModel;
 import com.neusoft.oa.ht.service.ICustomerService;
-@Service("customerService")
+@Service
 @Transactional  //环绕事务Advice的切入点
 public class CustomerServiceImpl implements ICustomerService {
 	
@@ -30,25 +30,27 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public void delete(CustomerModel customerModel) throws Exception {
 		// TODO Auto-generated method stub
+		this.iCustomerMapper.delete(customerModel);
 
 	}
 
 	@Override
 	public void modify(CustomerModel customerModel) throws Exception {
 		// TODO Auto-generated method stub
-
+		this.iCustomerMapper.update(customerModel);
 	}
 
 	@Override
-	public List<CustomerModel> seleByAll() throws Exception {
+	public List<CustomerModel> selectByAll() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return iCustomerMapper.selectByAll();
 	}
 
 	@Override
 	public CustomerModel seleteById(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return iCustomerMapper.selectByid(id);
 	}
 
 }

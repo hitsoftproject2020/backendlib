@@ -2,40 +2,36 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neusoft.oa.ht.mapper.ICustomerMapper">
+<mapper namespace="com.neusoft.oa.ht.mapper.IServiceOrderMapper">
 
-	<resultMap id="DepartmentResultMap" type="Department" >
-		<id property="no" column="DEPTNO"/>
-		<result property="code" column="DEPTCODE"/>
-		<result property="name" column="DEPTNAME"/>
+	<resultMap id="ServiceOrderResultMap" type="ServiceOrder" >
+		<id property="soid" column="SOID"/>
+		<result property="cid" column="CID"/>
+		<result property="sid" column="SID"/>
+		<result property="serviceNum" column="SERVICENUM"/>
+		<result property="sodate" column="SODATE"/>
+		<result property="sostate" column="SOSTATE"/>
+		<result property="soremark" column="SOREMARK"/>
 	</resultMap>
  
-	<insert id="insert" parameterType="Department" keyProperty="no"   keyColumn="DEPTNO"  useGeneratedKeys="true">
-	insert into oa_department (DEPTCODE,DEPTNAME) values (#{code},#{name})
+	<insert id="insert" parameterType="ServiceOrder" keyProperty="soid"   keyColumn="SOID"  useGeneratedKeys="true">
+	insert into service_order (CID,SID,SERVICENUM,SODATE,SOSTATE,SOREMARK) values (#{cid},#{sid},#{serviceNum},#{sodate},#{sostate},#{soremark})
  	</insert>
   
  	<update id="update">
- 	update  oa_department set DEPTCODE=#{code},DEPTNAME=#{name} where DEPTNO=#{no}
+ 	update  oservice_order set CID=#{cid},SID=#{sid},SERVICENUM=#{serviceNum},SODATE=#{sodate},SOSTATE=#{sostate},SOREMARK=#{spremark} where SOID=#{soid}
  	</update>
   
 	<delete id="delete">
- 	delete from oa_department  where DEPTNO=#{no} 
+ 	delete from service_order  where SOID=#{soid} 
  	</delete>
   
- 	<select id="selectByAll"  resultMap="DepartmentResultMap">
- 	select *  from oa_department
- 	</select>
- 	
- 	<select id="selectByAllWithPage" resultMap="DepartmentResultMap">
- 	select *  from oa_department limit #{start},#{rows}
- 	</select>
- 	
- 	<select id="selectCountByAll" resultType="_int">
- 	select count(*)  from oa_department
+ 	<select id="selectByAll"  resultMap="ServiceOrderResultMap">
+ 	select *  from service_order
  	</select>
  
- 	<select id="selectByNo"  resultMap="DepartmentResultMap">
- 	select * from oa_department where DEPTNO=#{no}
+ 	<select id="selectByid"  resultMap="ServiceOrderResultMap">
+ 	select * from service_order where SOID=#{soid}
  	</select>
   
 </mapper>

@@ -2,40 +2,34 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neusoft.oa.ht.mapper.ICustomerMapper">
+<mapper namespace="com.neusoft.oa.ht.mapper.IRoomTypeMapper">
 
-	<resultMap id="DepartmentResultMap" type="Department" >
-		<id property="no" column="DEPTNO"/>
-		<result property="code" column="DEPTCODE"/>
-		<result property="name" column="DEPTNAME"/>
+	<resultMap id="RoomTypeResultMap" type="RoomType" >
+		<id property="tid" column="TID"/>
+		<result property="tname" column="TNAME"/>
+		<result property="tprice" column="TPRICE"/>
+		<result property="bednum" column="BEDNUM"/>
+		<result property="tremark" column="TREMARK"/>
 	</resultMap>
  
-	<insert id="insert" parameterType="Department" keyProperty="no"   keyColumn="DEPTNO"  useGeneratedKeys="true">
-	insert into oa_department (DEPTCODE,DEPTNAME) values (#{code},#{name})
+	<insert id="insert" parameterType="RoomType" keyProperty="tid"   keyColumn="TID"  useGeneratedKeys="true">
+	insert into room_type (TNAME,TPRICE) values (#{tname},#{tprice})
  	</insert>
   
- 	<update id="update">
- 	update  oa_department set DEPTCODE=#{code},DEPTNAME=#{name} where DEPTNO=#{no}
+ 	<update id="update" parameterType="RoomType">
+ 	update  room_type set BEDNUM=#{bednum},TREMARK=#{tremark} where TID=#{tid}
  	</update>
   
-	<delete id="delete">
- 	delete from oa_department  where DEPTNO=#{no} 
+	<delete id="delete" parameterType="RoomType">
+ 	delete from room_type  where TID=#{tid} 
  	</delete>
   
- 	<select id="selectByAll"  resultMap="DepartmentResultMap">
- 	select *  from oa_department
+ 	<select id="selectByAll"  resultMap="RoomTypeResultMap">
+ 	select *  from room_type
  	</select>
  	
- 	<select id="selectByAllWithPage" resultMap="DepartmentResultMap">
- 	select *  from oa_department limit #{start},#{rows}
- 	</select>
- 	
- 	<select id="selectCountByAll" resultType="_int">
- 	select count(*)  from oa_department
- 	</select>
- 
- 	<select id="selectByNo"  resultMap="DepartmentResultMap">
- 	select * from oa_department where DEPTNO=#{no}
+ 	<select id="selectByid"  resultMap="RoomTypeResultMap">
+ 	select * from room_type where TID=#{tid}
  	</select>
   
 </mapper>

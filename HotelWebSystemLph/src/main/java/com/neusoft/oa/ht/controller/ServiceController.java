@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.neusoft.oa.ht.model.CustomerModel;
-import com.neusoft.oa.ht.service.ICustomerService;
+import com.neusoft.oa.ht.model.ServiceModel;
+import com.neusoft.oa.ht.service.IServiceService;
 import com.neusoft.oa.restresult.Result;
 
 @RestController
-@RequestMapping(value="/customer")
-public class CustomerController {
+@RequestMapping(value="/service")
+public class ServiceController {
 	@Autowired
-	private ICustomerService ds=null;
-		
+	private IServiceService iServiceService = null;
+	
 	@PostMapping(value="/add")
-	public Result<String> add(CustomerModel dm) throws Exception{
-		ds.add(dm);
+	public Result<String> add(ServiceModel serviceModel) throws Exception{
+		iServiceService.add(serviceModel);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
 		result.setMessage("增加部门成功!");
@@ -27,16 +27,16 @@ public class CustomerController {
 		
 	}
 	@PostMapping(value="/modify")
-	public Result<String> modify(CustomerModel dm) throws Exception{
-		ds.modify(dm);
+	public Result<String> modify(ServiceModel serviceModel) throws Exception{
+		iServiceService.modify(serviceModel);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
 		result.setMessage("修改部门成功!");
 		return result;
 	}
 	@PostMapping(value="/delete")
-	public Result<String> delete(CustomerModel dm) throws Exception{
-		ds.delete(dm);
+	public Result<String> delete(ServiceModel serviceModel) throws Exception{
+		iServiceService.delete(serviceModel);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
 		result.setMessage("删除部门成功!");
@@ -56,22 +56,14 @@ public class CustomerController {
 //		result.setMessage("取得部门列表分页方式成功!");
 //		return result;
 //	}
-	@GetMapping(value="/getbyno")
-	public Result<CustomerModel> getByNo(@RequestParam(required=true) int no) throws Exception{
-		Result<CustomerModel> result=new Result<CustomerModel>();
-		result.setResult(ds.seleteById(no));
+	@GetMapping(value="/get")
+	public Result<ServiceModel> getByNo(@RequestParam(required=true) int no) throws Exception{
+		Result<ServiceModel> result=new Result<ServiceModel>();
+		result.setResult(iServiceService.seleteById(no));
 		
 		result.setStatus("OK");
 		result.setMessage("取得指定部门对象成功!");
 		return result;
 	}
-	@GetMapping(value="/getbyall")
-	public Result<CustomerModel> getByAll() throws Exception{
-		Result<CustomerModel> result=new Result<CustomerModel>();
-		result.setList(ds.selectByAll());
-		
-		result.setStatus("OK");
-		result.setMessage("取得指定部门对象成功!");
-		return result;
-	}
+
 }

@@ -12,7 +12,7 @@ public interface ICustomerService {
 	//修改客户信息
 	public void modify(CustomerModel customerModel) throws Exception;
 	//查看所有客户信息
-	public List<CustomerModel> seleByAll() throws Exception;
+	public List<CustomerModel> selectByAll() throws Exception;
 	//按ID查看客户信息
 	public CustomerModel seleteById(int id) throws Exception;
 

@@ -2,40 +2,32 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neusoft.oa.ht.mapper.ICustomerMapper">
+<mapper namespace="com.neusoft.oa.ht.mapper.IServiceMapper">
 
-	<resultMap id="DepartmentResultMap" type="Department" >
-		<id property="no" column="DEPTNO"/>
-		<result property="code" column="DEPTCODE"/>
-		<result property="name" column="DEPTNAME"/>
+	<resultMap id="ServiceResultMap" type="Service" >
+		<id property="sid" column="SID"/>
+		<result property="sname" column="SNAME"/>
+		<result property="sprice" column="SPRICE"/>
 	</resultMap>
  
-	<insert id="insert" parameterType="Department" keyProperty="no"   keyColumn="DEPTNO"  useGeneratedKeys="true">
-	insert into oa_department (DEPTCODE,DEPTNAME) values (#{code},#{name})
+	<insert id="insert" parameterType="Service" keyProperty="sid"   keyColumn="SID"  useGeneratedKeys="true">
+	insert into service (SNAME,SPRICE) values (#{sname},#{sprice})
  	</insert>
   
  	<update id="update">
- 	update  oa_department set DEPTCODE=#{code},DEPTNAME=#{name} where DEPTNO=#{no}
+ 	update  service set SNAME=#{sname},SPRICE=#{sprice} where SID=#{sid}
  	</update>
   
 	<delete id="delete">
- 	delete from oa_department  where DEPTNO=#{no} 
+ 	delete from service  where SID=#{sid} 
  	</delete>
   
- 	<select id="selectByAll"  resultMap="DepartmentResultMap">
- 	select *  from oa_department
- 	</select>
- 	
- 	<select id="selectByAllWithPage" resultMap="DepartmentResultMap">
- 	select *  from oa_department limit #{start},#{rows}
- 	</select>
- 	
- 	<select id="selectCountByAll" resultType="_int">
- 	select count(*)  from oa_department
+ 	<select id="selectByAll"  resultMap="ServiceResultMap">
+ 	select *  from service
  	</select>
  
- 	<select id="selectByNo"  resultMap="DepartmentResultMap">
- 	select * from oa_department where DEPTNO=#{no}
+ 	<select id="selectByid"  resultMap="ServiceResultMap">
+ 	select * from service where SID=#{sid}
  	</select>
   
 </mapper>
