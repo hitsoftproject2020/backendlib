@@ -40,11 +40,11 @@
  	delete from room_order  where ROID=#{roid} 
  	</delete>
   
- 	<select id="selectByAll"  resultMap="RoomOrderResultMap">
+ 	<select id="selectByAll"  resultMap="RoomOrderWithCustomerAndRoomResultMap">
  	select *  from room_order
  	</select>
  
- 	<select id="selectById"  resultMap="RoomOrderResultMap">
+ 	<select id="selectById"  resultMap="RoomOrderWithCustomerAndRoomResultMap">
  	select * from room_order where ROID=#{roid}
  	</select>
   

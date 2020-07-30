@@ -28,12 +28,12 @@
  	delete from room  where RID=#{rid} 
  	</delete>
   
- 	<select id="selectByAll"  resultMap="RoomResultMap">
+ 	<select id="selectByAll"  resultMap="RoomWithRoomTypeResultMap">
  	select *  from room
  	</select>
  	
  
- 	<select id="selectById"  resultMap="RoomResultMap">
+ 	<select id="selectById"  resultMap="RoomWithRoomTypeResultMap">
  	select * from room where RID=#{rid}
  	</select>
   

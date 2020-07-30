@@ -6,31 +6,43 @@
 
 	<resultMap id="ServiceOrderResultMap" type="ServiceOrder" >
 		<id property="soid" column="SOID"/>
-		<result property="cid" column="CID"/>
-		<result property="sid" column="SID"/>
+		
 		<result property="serviceNum" column="SERVICENUM"/>
 		<result property="sodate" column="SODATE"/>
 		<result property="sostate" column="SOSTATE"/>
 		<result property="soremark" column="SOREMARK"/>
 	</resultMap>
+	
+	<resultMap id="ServiceOrderWithCustomerAndServiceResultMap" type="ServiceOrder" extends="ServiceOrderResultMap">
+	    <association property="customer" resultMap="com.neusoft.oa.ht.mapper.ICustomerMapper.CustomerResultMap"></association>
+  	    <association property="service" resultMap="com.neusoft.oa.ht.mapper.IServiceMapper.ServiceResultMap"></association>
+    </resultMap>
+    
+    <resultMap id="ServiceOrderWithCustomerResultMap" type="ServiceOrder" extends="ServiceOrderResultMap">
+	    <association property="customer" resultMap="com.neusoft.oa.ht.mapper.ICustomerMapper.CustomerResultMap"></association>
+    </resultMap>
+    
+    <resultMap id="ServiceOrderWithServiceResultMap" type="ServiceOrder" extends="ServiceOrderResultMap">
+  	    <association property="service" resultMap="com.neusoft.oa.ht.mapper.IServiceMapper.ServiceResultMap"></association>
+    </resultMap>
  
 	<insert id="insert" parameterType="ServiceOrder" keyProperty="soid"   keyColumn="SOID"  useGeneratedKeys="true">
-	insert into service_order (CID,SID,SERVICENUM,SODATE,SOSTATE,SOREMARK) values (#{cid},#{sid},#{serviceNum},#{sodate},#{sostate},#{soremark})
+	insert into service_order (CID,SID,SERVICENUM,SODATE,SOSTATE,SOREMARK) values (#{customer.cid},#{service.sid},#{serviceNum},#{sodate},#{sostate},#{soremark})
  	</insert>
   
  	<update id="update" parameterType="ServiceOrder">
- 	update  oservice_order set CID=#{cid},SID=#{sid},SERVICENUM=#{serviceNum},SODATE=#{sodate},SOSTATE=#{sostate},SOREMARK=#{spremark} where SOID=#{soid}
+ 	update  oservice_order set CID=#{customer.cid},SID=#{service.cid},SERVICENUM=#{serviceNum},SODATE=#{sodate},SOSTATE=#{sostate},SOREMARK=#{spremark} where SOID=#{soid}
  	</update>
   
 	<delete id="delete" parameterType="ServiceOrder">
  	delete from service_order  where SOID=#{soid} 
  	</delete>
   
- 	<select id="selectByAll"  resultMap="ServiceOrderResultMap">
+ 	<select id="selectByAll"  resultMap="ServiceOrderWithCustomerAndServiceResultMap">
  	select *  from service_order
  	</select>
  
- 	<select id="selectById"  resultMap="ServiceOrderResultMap">
+ 	<select id="selectById"  resultMap="ServiceOrderWithCustomerAndServiceResultMap">
  	select * from service_order where SOID=#{soid}
  	</select>
   
