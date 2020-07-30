@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.oa.ht.mapper.IRoomMapper">
+
+	<resultMap id="RoomResultMap" type="Room" >
+		<id property="rid" column="RID"/>
+		<result property="floor" column="FLOOR"/>
+		<result property="rstate" column="RSTATE"/>
+		<result property="rremark" column="RREMARK"/>
+		
+	</resultMap>
+	
+	<resultMap id="RoomWithRoomTypeResultMap" type="Room" extends="RoomResultMap">
+  	    <association property="roomtype" resultMap="com.neusoft.oa.ht.mapper.IRoomTypeMapper.RoomTypeResultMap"></association>
+    </resultMap>
+ 
+	<insert id="insert" parameterType="Room" keyProperty="rid"   keyColumn="RID"  useGeneratedKeys="true">
+	insert into room (FLOOR,TID) values (#{floor},#{roomtype.tid})
+ 	</insert>
+  
+ 	<update id="update" parameterType="Room">
+ 	update  room set RSTATE=#{rstate},RREMARK=#{rremark} where RID=#{rid}
+ 	</update>
+  
+	<delete id="delete" parameterType="Room">
+ 	delete from room  where RID=#{rid} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="RoomResultMap">
+ 	select *  from room
+ 	</select>
+ 	
+ 
+ 	<select id="selectById"  resultMap="RoomResultMap">
+ 	select * from room where RID=#{rid}
+ 	</select>
+  
+</mapper>

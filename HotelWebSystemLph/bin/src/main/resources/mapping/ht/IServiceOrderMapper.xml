@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.oa.ht.mapper.IServiceOrderMapper">
+
+	<resultMap id="ServiceOrderResultMap" type="ServiceOrder" >
+		<id property="soid" column="SOID"/>
+		<result property="cid" column="CID"/>
+		<result property="sid" column="SID"/>
+		<result property="serviceNum" column="SERVICENUM"/>
+		<result property="sodate" column="SODATE"/>
+		<result property="sostate" column="SOSTATE"/>
+		<result property="soremark" column="SOREMARK"/>
+	</resultMap>
+ 
+	<insert id="insert" parameterType="ServiceOrder" keyProperty="soid"   keyColumn="SOID"  useGeneratedKeys="true">
+	insert into service_order (CID,SID,SERVICENUM,SODATE,SOSTATE,SOREMARK) values (#{cid},#{sid},#{serviceNum},#{sodate},#{sostate},#{soremark})
+ 	</insert>
+  
+ 	<update id="update" parameterType="ServiceOrder">
+ 	update  oservice_order set CID=#{cid},SID=#{sid},SERVICENUM=#{serviceNum},SODATE=#{sodate},SOSTATE=#{sostate},SOREMARK=#{spremark} where SOID=#{soid}
+ 	</update>
+  
+	<delete id="delete" parameterType="ServiceOrder">
+ 	delete from service_order  where SOID=#{soid} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="ServiceOrderResultMap">
+ 	select *  from service_order
+ 	</select>
+ 
+ 	<select id="selectById"  resultMap="ServiceOrderResultMap">
+ 	select * from service_order where SOID=#{soid}
+ 	</select>
+  
+</mapper>

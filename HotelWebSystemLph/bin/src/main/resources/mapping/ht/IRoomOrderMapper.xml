@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.oa.ht.mapper.IRoomOrderMapper">
+
+	<resultMap id="RoomOrderResultMap" type="RoomOrder" >
+		<id property="roid" column="ROID"/>
+		<result property="rodate" column="RODATE"/>
+		<result property="checkinDate" column="CHECKINDATE"/>
+		<result property="checkoutDate" column="CHECKOUTDATE"/>
+		<result property="rostate" column="ROSTATE"/>
+		<result property="roremark" column="ROREMARK"/>
+	</resultMap>
+	
+	
+	<resultMap id="RoomOrderWithCustomerAndRoomResultMap" type="RoomOrder" extends="RoomOrderResultMap">
+	    <association property="customer" resultMap="com.neusoft.oa.ht.mapper.ICustomerMapper.CustomerResultMap"></association>
+  	    <association property="room" resultMap="com.neusoft.oa.ht.mapper.IRoomMapper.RoomResultMap"></association>
+    </resultMap>
+    
+    <resultMap id="RoomOrderWithCustomerResultMap" type="RoomOrder" extends="RoomOrderResultMap">
+	    <association property="customer" resultMap="com.neusoft.oa.ht.mapper.ICustomerMapper.CustomerResultMap"></association>
+    </resultMap>
+    
+    <resultMap id="RoomOrderWithRoomResultMap" type="RoomOrder" extends="RoomOrderResultMap">
+  	    <association property="room" resultMap="com.neusoft.oa.ht.mapper.IRoomMapper.RoomResultMap"></association>
+    </resultMap>
+	
+ 
+	<insert id="insert" parameterType="RoomOrder" keyProperty="roid"   keyColumn="ROID"  useGeneratedKeys="true">
+	insert into room_order (RODATE,CID,RID) values (#{rodate},#{customer.cid},#{room.rid})
+ 	</insert>
+  
+ 	<update id="update" parameterType="RoomOrder">
+ 	update  room_order set CHECKINDATE=#{checkinDate},CHECKOUTDATE=#{checkoutDate},ROSTATE=#{rostate},ROREMARK=#{roremark} where ROID=#{roid}
+ 	</update>
+  
+	<delete id="delete" parameterType="RoomOrder">
+ 	delete from room_order  where ROID=#{roid} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="RoomOrderResultMap">
+ 	select *  from room_order
+ 	</select>
+ 
+ 	<select id="selectById"  resultMap="RoomOrderResultMap">
+ 	select * from room_order where ROID=#{roid}
+ 	</select>
+  
+</mapper>

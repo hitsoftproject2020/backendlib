@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.oa.ht.mapper.IServiceMapper">
+
+	<resultMap id="ServiceResultMap" type="Service" >
+		<id property="sid" column="SID"/>
+		<result property="sname" column="SNAME"/>
+		<result property="sprice" column="SPRICE"/>
+	</resultMap>
+ 
+	<insert id="insert" parameterType="Service" keyProperty="sid"   keyColumn="SID"  useGeneratedKeys="true">
+	insert into service (SNAME,SPRICE) values (#{sname},#{sprice})
+ 	</insert>
+  
+ 	<update id="update" parameterType="Service">
+ 	update  service set SNAME=#{sname},SPRICE=#{sprice} where SID=#{sid}
+ 	</update>
+  
+	<delete id="delete" parameterType="Service">
+ 	delete from service  where SID=#{sid} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="ServiceResultMap">
+ 	select *  from service
+ 	</select>
+ 
+ 	<select id="selectById"  resultMap="ServiceResultMap">
+ 	select * from service where SID=#{sid}
+ 	</select>
+  
+</mapper>

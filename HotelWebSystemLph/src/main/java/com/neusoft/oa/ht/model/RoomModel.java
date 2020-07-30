@@ -3,6 +3,7 @@ package com.neusoft.oa.ht.model;
 import java.io.Serializable;
 
 import org.apache.ibatis.type.Alias;
+@SuppressWarnings("serial")
 @Alias("Room")
 public class RoomModel implements Serializable {
 	private int rid = 0;

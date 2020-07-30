@@ -1,0 +1,20 @@
+
+server:  port: 8200
+ 
+spring:
+  datasource:
+    username: root
+    password: 1170300602
+    url: jdbc:mysql://localhost:3319/hotelwebsystemlph?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+ 
+mybatis:
+  mapper-locations: classpath:mapping/**/*.xml
+  type-aliases-package: com.neusoft.oa.ht.model,com.neusoft.oa.admin.model
+ 
+#showSql
+logging:
+  level:
+     com.neusoft.oa.ht.mapper: debug
+    
+ 

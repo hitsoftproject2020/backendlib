@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import org.apache.ibatis.type.Alias;
+@SuppressWarnings("serial")
 @Alias("RoomOrder")
 public class RoomOrderModel implements Serializable {
 	private int roid = 0;

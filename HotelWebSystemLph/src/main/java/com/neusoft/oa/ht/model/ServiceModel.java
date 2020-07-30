@@ -3,6 +3,7 @@ package com.neusoft.oa.ht.model;
 import java.io.Serializable;
 
 import org.apache.ibatis.type.Alias;
+@SuppressWarnings("serial")
 @Alias("Service")
 public class ServiceModel implements Serializable {
 	private int sid = 0;
