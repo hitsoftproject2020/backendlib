@@ -8,10 +8,14 @@
 		<id property="cid" column="CID"/>
 		<result property="cnameString" column="CNAME"/>
 		<result property="cpassWord" column="CPASSWORD"/>
-		<result property="csex" column="CREALNAME"/>
-		<result property="cpassWord" column="CSEX"/>
+		<result property="crealName" column="CREALNAME"/>
+		<result property="csex" column="CSEX"/>
 		<result property="cidno" column="CIDNO"/>
 		<result property="cphoneno" column="CPHONENO"/>
+	</resultMap>
+	
+	<resultMap type="Customer" id="CustomerIdName">
+	<id property="cid" column="CID"/>
 	</resultMap>
  
 	<insert id="insert" parameterType="Customer" keyProperty="cid"   keyColumn="CID"  useGeneratedKeys="true">
@@ -31,7 +35,7 @@
  	</select>
  
  	<select id="selectById"  resultMap="CustomerResultMap">
- 	select * from customer where CID=#{id}
+ 	select * from customer where CID=#{cid}
  	</select>
   
 </mapper>

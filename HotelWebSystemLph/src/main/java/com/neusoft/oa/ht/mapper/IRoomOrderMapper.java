@@ -13,5 +13,6 @@ public interface IRoomOrderMapper {
 	public void delete(RoomOrderModel roomOrderModel) throws Exception;
 	public List<RoomOrderModel> selectByAll() throws Exception;
 	public RoomOrderModel selectById(int id) throws Exception;
+//	public void moretable() throws Exception;
 
 }

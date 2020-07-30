@@ -6,8 +6,6 @@
 
 	<resultMap id="ServiceOrderResultMap" type="ServiceOrder" >
 		<id property="soid" column="SOID"/>
-		<result property="cid" column="CID"/>
-		<result property="sid" column="SID"/>
 		<result property="serviceNum" column="SERVICENUM"/>
 		<result property="sodate" column="SODATE"/>
 		<result property="sostate" column="SOSTATE"/>

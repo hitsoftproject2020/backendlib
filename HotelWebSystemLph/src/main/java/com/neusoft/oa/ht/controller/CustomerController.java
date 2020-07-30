@@ -1,6 +1,7 @@
 package com.neusoft.oa.ht.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.neusoft.oa.ht.service.ICustomerService;
 import com.neusoft.oa.restresult.Result;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value="/customer")
 public class CustomerController {
 	@Autowired
@@ -74,4 +76,5 @@ public class CustomerController {
 		result.setMessage("取得指定部门对象成功!");
 		return result;
 	}
+	
 }

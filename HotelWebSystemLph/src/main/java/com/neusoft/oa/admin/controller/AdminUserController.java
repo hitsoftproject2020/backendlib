@@ -1,6 +1,7 @@
 package com.neusoft.oa.admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.neusoft.oa.admin.service.IAdminUserService;
 import com.neusoft.oa.restresult.Result;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value="/admin")
 public class AdminUserController {
 	@Autowired

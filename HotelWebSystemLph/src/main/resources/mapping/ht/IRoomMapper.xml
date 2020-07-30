@@ -17,7 +17,7 @@
     </resultMap>
  
 	<insert id="insert" parameterType="Room" keyProperty="rid"   keyColumn="RID"  useGeneratedKeys="true">
-	insert into room (FLOOR,TID) values (#{floor},#{roomtype.tid})
+	insert into room (FLOOR,RSTATE,RREMARK,TID) values (#{floor},#{rstate},#{rremark},#{roomtype.type})
  	</insert>
   
  	<update id="update" parameterType="Room">

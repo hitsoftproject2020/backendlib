@@ -7,7 +7,20 @@ import org.apache.ibatis.type.Alias;
 @Alias("RoomOrder")
 public class RoomOrderModel implements Serializable {
 	private int roid = 0;
-	
+//	private int rid = 0;
+//	private int cid = 0;
+//	public int getRid() {
+//		return rid;
+//	}
+//	public void setRid(int rid) {
+//		this.rid = rid;
+//	}
+//	public int getCid() {
+//		return cid;
+//	}
+//	public void setCid(int cid) {
+//		this.cid = cid;
+//	}
 	private Date rodate = null;
 	private Date checkinDate = null;
 	private Date checkoutDate = null;

@@ -1,6 +1,7 @@
 package com.neusoft.oa.ht.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.neusoft.oa.ht.service.IServiceService;
 import com.neusoft.oa.restresult.Result;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value="/service")
 public class ServiceController {
 	@Autowired
@@ -56,10 +58,19 @@ public class ServiceController {
 //		result.setMessage("取得部门列表分页方式成功!");
 //		return result;
 //	}
-	@GetMapping(value="/get")
+	@GetMapping(value="/getbyno")
 	public Result<ServiceModel> getByNo(@RequestParam(required=true) int no) throws Exception{
 		Result<ServiceModel> result=new Result<ServiceModel>();
 		result.setResult(iServiceService.seleteById(no));
+		
+		result.setStatus("OK");
+		result.setMessage("取得指定部门对象成功!");
+		return result;
+	}
+	@GetMapping(value="/getbyall")
+	public Result<ServiceModel> getByAll() throws Exception{
+		Result<ServiceModel> result=new Result<ServiceModel>();
+		result.setList(iServiceService.selectByAll());
 		
 		result.setStatus("OK");
 		result.setMessage("取得指定部门对象成功!");
