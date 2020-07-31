@@ -1,6 +1,7 @@
 package com.neusoft.oa.ht.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.neusoft.oa.ht.service.IRoomTypeService;
 import com.neusoft.oa.restresult.Result;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value="/roomtype")
 public class RoomTypeController {
 	@Autowired
@@ -56,10 +58,19 @@ public class RoomTypeController {
 //		result.setMessage("取得部门列表分页方式成功!");
 //		return result;
 //	}
-	@GetMapping(value="/get")
+	@GetMapping(value="/getbyno")
 	public Result<RoomTypeModel> getByNo(@RequestParam(required=true) int no) throws Exception{
 		Result<RoomTypeModel> result=new Result<RoomTypeModel>();
 		result.setResult(iRoomTypeService.seleteById(no));
+		
+		result.setStatus("OK");
+		result.setMessage("取得指定部门对象成功!");
+		return result;
+	}
+	@GetMapping(value="/getbyall")
+	public Result<RoomTypeModel> getByAll() throws Exception{
+		Result<RoomTypeModel> result=new Result<RoomTypeModel>();
+		result.setList(iRoomTypeService.selectByAll());
 		
 		result.setStatus("OK");
 		result.setMessage("取得指定部门对象成功!");

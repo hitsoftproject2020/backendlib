@@ -16,9 +16,6 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Autowired
 	private ICustomerMapper iCustomerMapper = null;
 	
-	public void setDepartmentMapper(ICustomerMapper iCustomerMapper1) {
-		this.iCustomerMapper = iCustomerMapper1;
-	}
 	
 	@Override
 	public void add(CustomerModel customerModel) throws Exception {

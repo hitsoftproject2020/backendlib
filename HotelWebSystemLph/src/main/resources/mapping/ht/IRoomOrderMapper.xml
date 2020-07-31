@@ -13,6 +13,11 @@
 		<result property="roremark" column="ROREMARK"/>
 	</resultMap>
 	
+	<resultMap type="RoomOrder" id="RoomOrderRid">
+	<id property="roid" column="ROID"/>
+	<result property="rodate" column="RODATE"/>
+	</resultMap>
+	
 	
 	<resultMap id="RoomOrderWithCustomerAndRoomResultMap" type="RoomOrder" extends="RoomOrderResultMap">
 	    <association property="customer" resultMap="com.neusoft.oa.ht.mapper.ICustomerMapper.CustomerResultMap"></association>
@@ -29,7 +34,7 @@
 	
  
 	<insert id="insert" parameterType="RoomOrder" keyProperty="roid"   keyColumn="ROID"  useGeneratedKeys="true">
-	insert into room_order (RODATE,CID,RID) values (#{rodate},#{customer.cid},#{room.rid})
+	insert into room_order (RODATE,CID,RID,ROSTATE,ROREMARK) values (#{rodate},#{customer.cid},#{room.rid},#{rostate},#{roremark})
  	</insert>
   
  	<update id="update" parameterType="RoomOrder">
@@ -47,5 +52,6 @@
  	<select id="selectById"  resultMap="RoomOrderWithCustomerAndRoomResultMap">
  	select * from room_order where ROID=#{roid}
  	</select>
+ 	
   
 </mapper>

@@ -2,6 +2,7 @@ package com.neusoft.oa.ht.service;
 
 import java.util.List;
 
+import com.neusoft.oa.ht.model.CustomerAndRoomModel;
 import com.neusoft.oa.ht.model.RoomOrderModel;
 
 public interface IRoomOrderService {
@@ -15,5 +16,8 @@ public interface IRoomOrderService {
 	public List<RoomOrderModel> selectByAll() throws Exception;
 	//按ID查看客户信息
 	public RoomOrderModel seleteById(int id) throws Exception;
+	
+	public List<CustomerAndRoomModel> selectCustomerAndRoom(int id) throws Exception;
+	
 
 }

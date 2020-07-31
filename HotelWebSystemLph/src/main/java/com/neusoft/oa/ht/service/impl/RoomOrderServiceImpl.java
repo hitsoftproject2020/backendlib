@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.neusoft.oa.ht.mapper.IRoomOrderMapper;
+import com.neusoft.oa.ht.model.CustomerAndRoomModel;
 import com.neusoft.oa.ht.model.RoomOrderModel;
 import com.neusoft.oa.ht.service.IRoomOrderService;
 @Service
@@ -46,6 +47,13 @@ public class RoomOrderServiceImpl implements IRoomOrderService {
 	public RoomOrderModel seleteById(int id) throws Exception {
 		// TODO Auto-generated method stub
 		return iRoomOrderMapper.selectById(id);
+	}
+
+	@Override
+	public List<CustomerAndRoomModel> selectCustomerAndRoom(int id) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return null;
 	}
 
 }

@@ -8,7 +8,7 @@
 		<id property="tid" column="TID"/>
 		<result property="tname" column="TNAME"/>
 		<result property="tprice" column="TPRICE"/>
-		<result property="bednum" column="BEDNUM"/>
+		<result property="bedNum" column="BEDNUM"/>
 		<result property="tremark" column="TREMARK"/>
 	</resultMap>
  
@@ -17,7 +17,7 @@
  	</insert>
   
  	<update id="update" parameterType="RoomType">
- 	update  room_type set BEDNUM=#{bednum},TREMARK=#{tremark} where TID=#{tid}
+ 	update  room_type set BEDNUM=#{bedNum},TREMARK=#{tremark} where TID=#{tid}
  	</update>
   
 	<delete id="delete" parameterType="RoomType">

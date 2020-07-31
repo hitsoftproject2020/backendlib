@@ -6,7 +6,10 @@
 
 	<resultMap id="ServiceOrderResultMap" type="ServiceOrder" >
 		<id property="soid" column="SOID"/>
+<<<<<<< HEAD
 		
+=======
+>>>>>>> branch 'master' of https://github.com/hitsoftproject2020/backendlib.git
 		<result property="serviceNum" column="SERVICENUM"/>
 		<result property="sodate" column="SODATE"/>
 		<result property="sostate" column="SOSTATE"/>

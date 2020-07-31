@@ -26,7 +26,7 @@
  	select *  from admin_user
  	</select>
  
- 	<select id="selectByid"  resultMap="CustomerResultMap">
+ 	<select id="selectByid"  resultMap="AdminUserResultMap">
  	select * from admin_user where ADMINID=#{adminid}
  	</select>
   
